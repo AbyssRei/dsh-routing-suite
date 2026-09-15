@@ -21,6 +21,7 @@
     "./package.json": "./package.json"
   },
   "files": [
+    "injector/package.json",
     "injector/lib",
     "injector/scripts",
     "cordis.patch.yml",
