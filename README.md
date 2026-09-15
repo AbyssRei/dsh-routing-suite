@@ -52,7 +52,7 @@ preset 与 graded 由注入器在**首次激活后自动补装**（约 1.5s 后�
 git clone https://github.com/yjh051108/dsh-routing-suite.git
 cd dsh-routing-suite
 
-# 2. 一键安装（注入器装配 + 预设复制 + 布局自检 + 提示重启）
+# 2. 一键安装（注入器装配 + 预设复制 + graded 装配 + 布局自检 + 提示重启）
 .\install.ps1
 ```
 
@@ -70,7 +70,10 @@ Copy-Item -Recurse .\preset\router-standard $target
 $target = Join-Path $env:USERPROFILE '.dsh\.agent-presets\router-spec'
 Copy-Item -Recurse .\preset\router-spec $target
 
-# 步骤 3：重启 DSH → 新会话选择 Router Standard / Router Spec (experimental)
+# 步骤 3：安装 graded 分级模式（实验组件，仓库内预构建发布物；/分级 on 激活，不激活零痕迹）
+dsh plugin --profile web add .\graded\dsh-external-dsh-graded-mode-0.0.1-rc1.tgz
+
+# 步骤 4：重启 DSH → 新会话选择 Router Standard / Router Spec (experimental)
 ```
 
 > 注意：不要复制 `preset` 整目录（会多套一层，DSH 发现不了预设）。
